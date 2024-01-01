@@ -10,7 +10,7 @@
 let s:configuration = gruvbox_material#get_configuration()
 let s:palette = gruvbox_material#get_palette(s:configuration.background, s:configuration.foreground, s:configuration.colors_override)
 let s:path = expand('<sfile>:p') " the path of this script
-let s:last_modified = 'Tue Oct 24 15:47:07 UTC 2023'
+let s:last_modified = 'lun. 01 janv. 2024 13:12:40 UTC'
 let g:gruvbox_material_loaded_file_types = []
 
 if !(exists('g:colors_name') && g:colors_name ==# 'gruvbox-material' && s:configuration.better_performance)
@@ -581,7 +581,7 @@ highlight! link TSEnvironment Macro
 highlight! link TSEnvironmentName Type
 highlight! link TSError Error
 highlight! link TSException Red
-highlight! link TSField Blue
+highlight! link TSField Fg
 highlight! link TSFloat Purple
 highlight! link TSFuncBuiltin GreenBold
 highlight! link TSFuncMacro GreenBold
@@ -589,9 +589,9 @@ highlight! link TSFunction GreenBold
 highlight! link TSFunctionCall GreenBold
 highlight! link TSInclude Red
 highlight! link TSKeyword Red
-highlight! link TSKeywordFunction Red
-highlight! link TSKeywordOperator Orange
-highlight! link TSKeywordReturn Red
+highlight! link TSKeywordFunction RedItalic
+highlight! link TSKeywordOperator Red
+highlight! link TSKeywordReturn RedItalic
 highlight! link TSLabel Orange
 highlight! link TSLiteral String
 highlight! link TSMath Blue
@@ -604,7 +604,7 @@ highlight! link TSOperator Orange
 highlight! link TSParameter Fg
 highlight! link TSParameterReference Fg
 highlight! link TSPreProc PreProc
-highlight! link TSProperty Blue
+highlight! link TSProperty Aqua
 highlight! link TSPunctBracket Fg
 highlight! link TSPunctDelimiter Grey
 highlight! link TSPunctSpecial Blue
@@ -612,7 +612,7 @@ highlight! link TSRepeat Red
 highlight! link TSStorageClass Orange
 highlight! link TSStorageClassLifetime Orange
 highlight! link TSStrike Grey
-highlight! link TSString Aqua
+highlight! link TSString Yellow
 highlight! link TSStringEscape Green
 highlight! link TSStringRegex Green
 highlight! link TSStringSpecial SpecialChar
@@ -624,10 +624,10 @@ highlight! link TSText Green
 highlight! link TSTextReference Constant
 highlight! link TSTitle Title
 highlight! link TSTodo Todo
-highlight! link TSType YellowItalic
-highlight! link TSTypeBuiltin YellowItalic
-highlight! link TSTypeDefinition YellowItalic
-highlight! link TSTypeQualifier Orange
+highlight! link TSType BlueItalic
+highlight! link TSTypeBuiltin BlueItalic
+highlight! link TSTypeDefinition BlueItalic
+highlight! link TSTypeQualifier Red
 highlight! link TSURI markdownUrl
 highlight! link TSVariable Fg
 highlight! link TSVariableBuiltin PurpleItalic
@@ -720,7 +720,7 @@ if has('nvim-0.9.0')
   highlight! link @lsp.type.comment TSComment
   highlight! link @lsp.type.decorator TSFunction
   highlight! link @lsp.type.enum TSType
-  highlight! link @lsp.type.enumMember TSProperty
+  highlight! link @lsp.type.enumMember Purple
   highlight! link @lsp.type.events TSLabel
   highlight! link @lsp.type.function TSFunction
   highlight! link @lsp.type.interface TSType
