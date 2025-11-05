@@ -10,7 +10,7 @@
 let s:configuration = gruvbox_material#get_configuration()
 let s:palette = gruvbox_material#get_palette(s:configuration.background, s:configuration.foreground, s:configuration.colors_override)
 let s:path = expand('<sfile>:p') " the path of this script
-let s:last_modified = 'Wed Nov  5 10:21:52 UTC 2025'
+let s:last_modified = 'Wed Nov  5 11:12:04 UTC 2025'
 let g:gruvbox_material_loaded_file_types = []
 
 if !(exists('g:colors_name') && g:colors_name ==# 'gruvbox-material' && s:configuration.better_performance)
@@ -102,24 +102,6 @@ else
   call gruvbox_material#highlight('CursorLine', s:palette.none, s:palette.bg1)
   call gruvbox_material#highlight('CursorColumn', s:palette.none, s:palette.bg1)
 endif
-call gruvbox_material#highlight('LineNr', s:palette.bg5, s:palette.none)
-if &diff
-  call gruvbox_material#highlight('CursorLineNr', s:palette.grey1, s:palette.none, 'underline')
-elseif (&relativenumber == 1 && &cursorline == 0) || s:configuration.sign_column_background ==# 'none'
-  call gruvbox_material#highlight('CursorLineNr', s:palette.grey1, s:palette.none)
-else
-  call gruvbox_material#highlight('CursorLineNr', s:palette.grey1, s:palette.bg1)
-endif
-call gruvbox_material#highlight('DiffAdd', s:palette.none, s:palette.bg_diff_green)
-call gruvbox_material#highlight('DiffChange', s:palette.none, s:palette.bg_diff_blue)
-call gruvbox_material#highlight('DiffDelete', s:palette.none, s:palette.bg_diff_red)
-if has('nvim')
-  call gruvbox_material#highlight('DiffText', s:palette.bg0, s:palette.blue)
-else
-  call gruvbox_material#highlight('DiffText', s:palette.blue, s:palette.bg0, 'reverse')
-endif
-call gruvbox_material#highlight('Directory', s:palette.green, s:palette.none)
-call gruvbox_material#highlight('ErrorMsg', s:palette.red, s:palette.none, 'bold,underline')
 if s:configuration.ui_contrast ==# 'low'
   if s:configuration.sign_column_background ==# 'linenr' && s:configuration.transparent_background == 0
     call gruvbox_material#highlight('LineNr', s:palette.bg5, s:palette.bg1)
@@ -161,6 +143,16 @@ else
     endif
   endif
 endif
+call gruvbox_material#highlight('DiffAdd', s:palette.none, s:palette.bg_diff_green)
+call gruvbox_material#highlight('DiffChange', s:palette.none, s:palette.bg_diff_blue)
+call gruvbox_material#highlight('DiffDelete', s:palette.none, s:palette.bg_diff_red)
+if has('nvim')
+  call gruvbox_material#highlight('DiffText', s:palette.bg0, s:palette.blue)
+else
+  call gruvbox_material#highlight('DiffText', s:palette.blue, s:palette.bg0, 'reverse')
+endif
+call gruvbox_material#highlight('Directory', s:palette.green, s:palette.none)
+call gruvbox_material#highlight('ErrorMsg', s:palette.red, s:palette.none, 'bold,underline')
 call gruvbox_material#highlight('WarningMsg', s:palette.yellow, s:palette.none, 'bold')
 call gruvbox_material#highlight('ModeMsg', s:palette.fg0, s:palette.none, 'bold')
 call gruvbox_material#highlight('MoreMsg', s:palette.yellow, s:palette.none, 'bold')
