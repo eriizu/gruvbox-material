@@ -1582,10 +1582,16 @@ call gruvbox_material#highlight('MiniIndentscopePrefix', s:palette.none, s:palet
 call gruvbox_material#highlight('MiniJump2dSpot', s:palette.orange, s:palette.none, 'bold,nocombine')
 call gruvbox_material#highlight('MiniJump2dSpotAhead', s:palette.aqua, s:palette.none, 'nocombine')
 call gruvbox_material#highlight('MiniJump2dSpotUnique', s:palette.yellow, s:palette.none, 'bold,nocombine')
+highlight! link MiniPickPrompt NormalFloat
 if s:configuration.float_style ==# 'dim'
-  call gruvbox_material#highlight('MiniPickPrompt', s:palette.blue, s:palette.bg_dim)
+  call gruvbox_material#highlight('MiniPickPromptPrefix', s:palette.orange, s:palette.bg_dim)
+  call gruvbox_material#highlight('MiniPickPromptCaret', s:palette.blue, s:palette.bg_dim)
+elseif s:configuration.float_style ==# 'none'
+  call gruvbox_material#highlight('MiniPickPromptPrefix', s:palette.orange, s:palette.bg0)
+  call gruvbox_material#highlight('MiniPickPromptCaret', s:palette.blue, s:palette.bg0)
 else
-  call gruvbox_material#highlight('MiniPickPrompt', s:palette.blue, s:palette.bg3)
+  call gruvbox_material#highlight('MiniPickPromptPrefix', s:palette.orange, s:palette.bg2)
+  call gruvbox_material#highlight('MiniPickPromptCaret', s:palette.blue, s:palette.bg2)
 endif
 call gruvbox_material#highlight('MiniStarterCurrent', s:palette.none, s:palette.none, 'nocombine')
 call gruvbox_material#highlight('MiniStatuslineDevinfo', s:palette.grey2, s:palette.bg_statusline2)
@@ -1648,18 +1654,7 @@ highlight! link MiniNotifyBorder FloatBorder
 highlight! link MiniNotifyNormal NormalFloat
 highlight! link MiniNotifyTitle FloatTitle
 highlight! link MiniOperatorsExchangeFrom IncSearch
-highlight! link MiniPickBorder FloatBorder
-highlight! link MiniPickBorderBusy DiagnosticFloatingWarn
-highlight! link MiniPickBorderText FloatTitle
-highlight! link MiniPickHeader DiagnosticFloatingHint
-highlight! link MiniPickIconDirectory Directory
-highlight! link MiniPickIconFile MiniPickNormal
-highlight! link MiniPickMatchCurrent CursorLine
 highlight! link MiniPickMatchMarked DiffChange
-highlight! link MiniPickMatchRanges DiagnosticFloatingHint
-highlight! link MiniPickNormal NormalFloat
-highlight! link MiniPickPreviewLine CursorLine
-highlight! link MiniPickPreviewRegion IncSearch
 highlight! link MiniStarterFooter Orange
 highlight! link MiniStarterHeader Yellow
 highlight! link MiniStarterInactive Comment
