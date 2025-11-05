@@ -10,7 +10,7 @@
 let s:configuration = gruvbox_material#get_configuration()
 let s:palette = gruvbox_material#get_palette(s:configuration.background, s:configuration.foreground, s:configuration.colors_override)
 let s:path = expand('<sfile>:p') " the path of this script
-let s:last_modified = 'Wed Nov  5 10:10:31 UTC 2025'
+let s:last_modified = 'Wed Nov  5 10:21:52 UTC 2025'
 let g:gruvbox_material_loaded_file_types = []
 
 if !(exists('g:colors_name') && g:colors_name ==# 'gruvbox-material' && s:configuration.better_performance)
@@ -1558,11 +1558,12 @@ call gruvbox_material#highlight('InclineNormalNC', s:palette.grey1, s:palette.bg
 " }}}
 " echasnovski/mini.nvim {{{
 call gruvbox_material#highlight('MiniAnimateCursor', s:palette.none, s:palette.none, 'reverse,nocombine')
-call gruvbox_material#highlight('MiniFilesFile', s:palette.fg1, s:palette.none)
 if s:configuration.float_style ==# 'dim'
-  call gruvbox_material#highlight('MiniFilesTitleFocused', s:palette.green, s:palette.bg_dim, 'bold')
+  call gruvbox_material#highlight('MiniFilesTitle', s:palette.grey0, s:palette.bg0)
+elseif s:configuration.float_style ==# 'none'
+  call gruvbox_material#highlight('MiniFilesTitle', s:palette.grey1, s:palette.bg1)
 else
-  call gruvbox_material#highlight('MiniFilesTitleFocused', s:palette.green, s:palette.bg3, 'bold')
+  call gruvbox_material#highlight('MiniFilesTitle', s:palette.grey2, s:palette.bg4)
 endif
 call gruvbox_material#highlight('MiniHipatternsFixme', s:palette.bg0, s:palette.red, 'bold')
 call gruvbox_material#highlight('MiniHipatternsHack', s:palette.bg0, s:palette.yellow, 'bold')
@@ -1636,12 +1637,6 @@ highlight! link MiniDiffOverDelete DiffDelete
 highlight! link MiniDiffSignAdd GreenSign
 highlight! link MiniDiffSignChange BlueSign
 highlight! link MiniDiffSignDelete RedSign
-highlight! link MiniFilesBorder FloatBorder
-highlight! link MiniFilesBorderModified DiagnosticFloatingWarn
-highlight! link MiniFilesCursorLine CursorLine
-highlight! link MiniFilesDirectory Directory
-highlight! link MiniFilesNormal NormalFloat
-highlight! link MiniFilesTitle FloatTitle
 highlight! link MiniIndentscopeSymbol Grey
 highlight! link MiniJump Search
 highlight! link MiniJump2dDim Comment
