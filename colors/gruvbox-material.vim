@@ -10,7 +10,7 @@
 let s:configuration = gruvbox_material#get_configuration()
 let s:palette = gruvbox_material#get_palette(s:configuration.background, s:configuration.foreground, s:configuration.colors_override)
 let s:path = expand('<sfile>:p') " the path of this script
-let s:last_modified = 'Mon Aug 18 19:03:15 UTC 2025'
+let s:last_modified = 'Wed Nov  5 09:48:55 UTC 2025'
 let g:gruvbox_material_loaded_file_types = []
 
 if !(exists('g:colors_name') && g:colors_name ==# 'gruvbox-material' && s:configuration.better_performance)
@@ -60,7 +60,7 @@ else
   endif
   call gruvbox_material#highlight('Folded', s:palette.grey1, s:palette.bg2)
   call gruvbox_material#highlight('ToolbarLine', s:palette.fg1, s:palette.bg3)
-  if s:configuration.sign_column_background ==# 'grey'
+  if s:configuration.sign_column_background ==# 'grey' || s:configuration.sign_column_background ==# 'linenr'
     call gruvbox_material#highlight('SignColumn', s:palette.fg0, s:palette.bg2)
     call gruvbox_material#highlight('FoldColumn', s:palette.grey1, s:palette.bg2)
   else
@@ -121,22 +121,44 @@ endif
 call gruvbox_material#highlight('Directory', s:palette.green, s:palette.none)
 call gruvbox_material#highlight('ErrorMsg', s:palette.red, s:palette.none, 'bold,underline')
 if s:configuration.ui_contrast ==# 'low'
-  call gruvbox_material#highlight('LineNr', s:palette.bg5, s:palette.none)
-  if &diff
-    call gruvbox_material#highlight('CursorLineNr', s:palette.grey1, s:palette.none, 'underline')
-  elseif (&relativenumber == 1 && &cursorline == 0) || s:configuration.sign_column_background ==# 'none'
-    call gruvbox_material#highlight('CursorLineNr', s:palette.grey1, s:palette.none)
+  if s:configuration.sign_column_background ==# 'linenr' && s:configuration.transparent_background == 0
+    call gruvbox_material#highlight('LineNr', s:palette.bg5, s:palette.bg1)
+    if &diff
+      call gruvbox_material#highlight('CursorLineNr', s:palette.grey1, s:palette.bg1, 'underline')
+    elseif (&relativenumber == 1 && &cursorline == 0)
+      call gruvbox_material#highlight('CursorLineNr', s:palette.grey1, s:palette.none)
+    else
+      call gruvbox_material#highlight('CursorLineNr', s:palette.grey1, s:palette.bg1)
+    endif
   else
-    call gruvbox_material#highlight('CursorLineNr', s:palette.grey1, s:palette.bg1)
+    call gruvbox_material#highlight('LineNr', s:palette.bg5, s:palette.none)
+    if &diff
+      call gruvbox_material#highlight('CursorLineNr', s:palette.grey1, s:palette.none, 'underline')
+    elseif (&relativenumber == 1 && &cursorline == 0) || s:configuration.sign_column_background ==# 'none'
+      call gruvbox_material#highlight('CursorLineNr', s:palette.grey1, s:palette.none)
+    else
+      call gruvbox_material#highlight('CursorLineNr', s:palette.grey1, s:palette.bg1)
+    endif
   endif
 else
-  call gruvbox_material#highlight('LineNr', s:palette.grey0, s:palette.none)
-  if &diff
-    call gruvbox_material#highlight('CursorLineNr', s:palette.grey2, s:palette.none, 'underline')
-  elseif (&relativenumber == 1 && &cursorline == 0) || s:configuration.sign_column_background ==# 'none'
-    call gruvbox_material#highlight('CursorLineNr', s:palette.grey2, s:palette.none)
+  if s:configuration.sign_column_background ==# 'linenr' && s:configuration.transparent_background == 0
+    call gruvbox_material#highlight('LineNr', s:palette.grey0, s:palette.bg1)
+    if &diff
+      call gruvbox_material#highlight('CursorLineNr', s:palette.grey2, s:palette.none, 'underline')
+    elseif (&relativenumber == 1 && &cursorline == 0)
+      call gruvbox_material#highlight('CursorLineNr', s:palette.grey2, s:palette.none)
+    else
+      call gruvbox_material#highlight('CursorLineNr', s:palette.grey2, s:palette.bg1)
+    endif
   else
-    call gruvbox_material#highlight('CursorLineNr', s:palette.grey2, s:palette.bg1)
+    call gruvbox_material#highlight('LineNr', s:palette.grey0, s:palette.none)
+    if &diff
+      call gruvbox_material#highlight('CursorLineNr', s:palette.grey2, s:palette.none, 'underline')
+    elseif (&relativenumber == 1 && &cursorline == 0) || s:configuration.sign_column_background ==# 'none'
+      call gruvbox_material#highlight('CursorLineNr', s:palette.grey2, s:palette.none)
+    else
+      call gruvbox_material#highlight('CursorLineNr', s:palette.grey2, s:palette.bg1)
+    endif
   endif
 endif
 call gruvbox_material#highlight('WarningMsg', s:palette.yellow, s:palette.none, 'bold')
