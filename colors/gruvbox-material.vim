@@ -10,7 +10,7 @@
 let s:configuration = gruvbox_material#get_configuration()
 let s:palette = gruvbox_material#get_palette(s:configuration.background, s:configuration.foreground, s:configuration.colors_override)
 let s:path = expand('<sfile>:p') " the path of this script
-let s:last_modified = 'Wed Nov  5 11:12:04 UTC 2025'
+let s:last_modified = 'Wed Nov  5 11:14:25 UTC 2025'
 let g:gruvbox_material_loaded_file_types = []
 
 if !(exists('g:colors_name') && g:colors_name ==# 'gruvbox-material' && s:configuration.better_performance)
@@ -882,7 +882,7 @@ highlight! link TSModuleInfoGood Green
 highlight! link TSModuleInfoBad Red
 " }}}
 " nvim-treesitter/nvim-treesitter-context {{{
-call gruvbox_material#highlight('TreesitterContext', s:palette.fg, s:palette.bg2)
+call gruvbox_material#highlight('TreesitterContext', s:palette.fg1, s:palette.bg3)
 if !s:configuration.dim_inactive_windows || s:configuration.transparent_background >= 1 || s:configuration.sign_column_background ==# 'linenr'
   highlight! link TreesitterContextLineNumber LineNr
 else
@@ -1555,7 +1555,7 @@ if s:configuration.float_style ==# 'dim'
 elseif s:configuration.float_style ==# 'none'
   call gruvbox_material#highlight('MiniFilesTitle', s:palette.grey1, s:palette.bg1)
 else
-  call gruvbox_material#highlight('MiniFilesTitle', s:palette.grey2, s:palette.bg4)
+  call gruvbox_material#highlight('MiniFilesTitle', s:palette.grey2, s:palette.bg5)
 endif
 call gruvbox_material#highlight('MiniHipatternsFixme', s:palette.bg0, s:palette.red, 'bold')
 call gruvbox_material#highlight('MiniHipatternsHack', s:palette.bg0, s:palette.yellow, 'bold')
@@ -1582,8 +1582,8 @@ elseif s:configuration.float_style ==# 'none'
   call gruvbox_material#highlight('MiniPickPromptPrefix', s:palette.orange, s:palette.bg0)
   call gruvbox_material#highlight('MiniPickPromptCaret', s:palette.blue, s:palette.bg0)
 else
-  call gruvbox_material#highlight('MiniPickPromptPrefix', s:palette.orange, s:palette.bg2)
-  call gruvbox_material#highlight('MiniPickPromptCaret', s:palette.blue, s:palette.bg2)
+  call gruvbox_material#highlight('MiniPickPromptPrefix', s:palette.orange, s:palette.bg3)
+  call gruvbox_material#highlight('MiniPickPromptCaret', s:palette.blue, s:palette.bg3)
 endif
 call gruvbox_material#highlight('MiniStarterCurrent', s:palette.none, s:palette.none, 'nocombine')
 call gruvbox_material#highlight('MiniStatuslineDevinfo', s:palette.grey2, s:palette.bg_statusline2)
