@@ -10,7 +10,7 @@
 let s:configuration = gruvbox_material#get_configuration()
 let s:palette = gruvbox_material#get_palette(s:configuration.background, s:configuration.foreground, s:configuration.colors_override)
 let s:path = expand('<sfile>:p') " the path of this script
-let s:last_modified = 'Thu Nov  6 12:02:52 UTC 2025'
+let s:last_modified = 'Thu Nov  6 14:13:12 UTC 2025'
 let g:gruvbox_material_loaded_file_types = []
 
 if !(exists('g:colors_name') && g:colors_name ==# 'gruvbox-material' && s:configuration.better_performance)
@@ -890,6 +890,7 @@ if s:configuration.dim_inactive_windows && !s:configuration.transparent_backgrou
     call gruvbox_material#highlight('TreesitterContextLineNumber', s:palette.grey0, s:palette.bg0)
   endif
 endif
+" }}}
 " github/copilot.vim {{{
 highlight! link CopilotSuggestion Grey
 " }}}
