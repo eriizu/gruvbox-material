@@ -10,7 +10,7 @@
 let s:configuration = gruvbox_material#get_configuration()
 let s:palette = gruvbox_material#get_palette(s:configuration.background, s:configuration.foreground, s:configuration.colors_override)
 let s:path = expand('<sfile>:p') " the path of this script
-let s:last_modified = 'Fri Nov  7 20:09:04 UTC 2025'
+let s:last_modified = 'Fri Nov  7 20:21:01 UTC 2025'
 let g:gruvbox_material_loaded_file_types = []
 
 if !(exists('g:colors_name') && g:colors_name ==# 'gruvbox-material' && s:configuration.better_performance)
@@ -28,7 +28,7 @@ endif
 " }}}
 " Common Highlight Groups: {{{
 " UI: {{{
-if s:configuration.transparent_background >= 1
+if s:configuration.transparent_background
   call gruvbox_material#highlight('Normal', s:palette.fg0, s:palette.none)
   call gruvbox_material#highlight('NormalNC', s:palette.fg0, s:palette.none)
   call gruvbox_material#highlight('Terminal', s:palette.fg0, s:palette.none)
@@ -184,9 +184,15 @@ if s:configuration.float_style ==# 'dim'
   call gruvbox_material#highlight('FloatBorder', s:palette.grey1, s:palette.bg_dim)
   call gruvbox_material#highlight('FloatTitle', s:palette.orange, s:palette.bg0, 'bold')
 elseif s:configuration.float_style ==# 'blend'
-  call gruvbox_material#highlight('NormalFloat', s:palette.fg1, s:palette.bg0)
-  call gruvbox_material#highlight('FloatBorder', s:palette.grey1, s:palette.bg0)
-  call gruvbox_material#highlight('FloatTitle', s:palette.orange, s:palette.bg1, 'bold')
+  if s:configuration.transparent_background
+    highlight! link NormalFloat Normal
+    highlight! link FloatBorder Grey
+    call gruvbox_material#highlight('FloatTitle', s:palette.orange, s:palette.none, 'bold')
+  else
+    call gruvbox_material#highlight('NormalFloat', s:palette.fg1, s:palette.bg0)
+    call gruvbox_material#highlight('FloatBorder', s:palette.grey1, s:palette.bg0)
+    call gruvbox_material#highlight('FloatTitle', s:palette.orange, s:palette.bg1, 'bold')
+  endif
 else
   call gruvbox_material#highlight('NormalFloat', s:palette.fg1, s:palette.bg3)
   call gruvbox_material#highlight('FloatBorder', s:palette.grey1, s:palette.bg3)
@@ -1552,7 +1558,11 @@ call gruvbox_material#highlight('MiniAnimateCursor', s:palette.none, s:palette.n
 if s:configuration.float_style ==# 'dim'
   call gruvbox_material#highlight('MiniFilesTitle', s:palette.grey0, s:palette.bg0)
 elseif s:configuration.float_style ==# 'blend'
-  call gruvbox_material#highlight('MiniFilesTitle', s:palette.grey1, s:palette.bg1)
+  if s:configuration.transparent_background
+    highlight! link MiniFilesTitle Grey
+  else
+    call gruvbox_material#highlight('MiniFilesTitle', s:palette.grey1, s:palette.bg1)
+  endif
 else
   call gruvbox_material#highlight('MiniFilesTitle', s:palette.grey2, s:palette.bg5)
 endif
@@ -1578,8 +1588,13 @@ if s:configuration.float_style ==# 'dim'
   call gruvbox_material#highlight('MiniPickPromptPrefix', s:palette.orange, s:palette.bg_dim)
   call gruvbox_material#highlight('MiniPickPromptCaret', s:palette.blue, s:palette.bg_dim)
 elseif s:configuration.float_style ==# 'blend'
-  call gruvbox_material#highlight('MiniPickPromptPrefix', s:palette.orange, s:palette.bg0)
-  call gruvbox_material#highlight('MiniPickPromptCaret', s:palette.blue, s:palette.bg0)
+  if s:configuration.transparent_background
+    highlight! link MiniPickPromptPrefix Orange
+    highlight! link MiniPickPromptCaret Blue
+  else
+    call gruvbox_material#highlight('MiniPickPromptPrefix', s:palette.orange, s:palette.bg0)
+    call gruvbox_material#highlight('MiniPickPromptCaret', s:palette.blue, s:palette.bg0)
+  endif
 else
   call gruvbox_material#highlight('MiniPickPromptPrefix', s:palette.orange, s:palette.bg3)
   call gruvbox_material#highlight('MiniPickPromptCaret', s:palette.blue, s:palette.bg3)
