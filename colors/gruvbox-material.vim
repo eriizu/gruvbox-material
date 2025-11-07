@@ -10,7 +10,7 @@
 let s:configuration = gruvbox_material#get_configuration()
 let s:palette = gruvbox_material#get_palette(s:configuration.background, s:configuration.foreground, s:configuration.colors_override)
 let s:path = expand('<sfile>:p') " the path of this script
-let s:last_modified = 'Thu Nov  6 14:13:12 UTC 2025'
+let s:last_modified = 'Fri Nov  7 20:09:04 UTC 2025'
 let g:gruvbox_material_loaded_file_types = []
 
 if !(exists('g:colors_name') && g:colors_name ==# 'gruvbox-material' && s:configuration.better_performance)
@@ -183,7 +183,7 @@ if s:configuration.float_style ==# 'dim'
   call gruvbox_material#highlight('NormalFloat', s:palette.fg1, s:palette.bg_dim)
   call gruvbox_material#highlight('FloatBorder', s:palette.grey1, s:palette.bg_dim)
   call gruvbox_material#highlight('FloatTitle', s:palette.orange, s:palette.bg0, 'bold')
-elseif s:configuration.float_style ==# 'none'
+elseif s:configuration.float_style ==# 'blend'
   call gruvbox_material#highlight('NormalFloat', s:palette.fg1, s:palette.bg0)
   call gruvbox_material#highlight('FloatBorder', s:palette.grey1, s:palette.bg0)
   call gruvbox_material#highlight('FloatTitle', s:palette.orange, s:palette.bg1, 'bold')
@@ -1551,7 +1551,7 @@ call gruvbox_material#highlight('InclineNormalNC', s:palette.grey1, s:palette.bg
 call gruvbox_material#highlight('MiniAnimateCursor', s:palette.none, s:palette.none, 'reverse,nocombine')
 if s:configuration.float_style ==# 'dim'
   call gruvbox_material#highlight('MiniFilesTitle', s:palette.grey0, s:palette.bg0)
-elseif s:configuration.float_style ==# 'none'
+elseif s:configuration.float_style ==# 'blend'
   call gruvbox_material#highlight('MiniFilesTitle', s:palette.grey1, s:palette.bg1)
 else
   call gruvbox_material#highlight('MiniFilesTitle', s:palette.grey2, s:palette.bg5)
@@ -1577,7 +1577,7 @@ highlight! link MiniPickPrompt NormalFloat
 if s:configuration.float_style ==# 'dim'
   call gruvbox_material#highlight('MiniPickPromptPrefix', s:palette.orange, s:palette.bg_dim)
   call gruvbox_material#highlight('MiniPickPromptCaret', s:palette.blue, s:palette.bg_dim)
-elseif s:configuration.float_style ==# 'none'
+elseif s:configuration.float_style ==# 'blend'
   call gruvbox_material#highlight('MiniPickPromptPrefix', s:palette.orange, s:palette.bg0)
   call gruvbox_material#highlight('MiniPickPromptCaret', s:palette.blue, s:palette.bg0)
 else

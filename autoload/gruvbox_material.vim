@@ -7,6 +7,12 @@
 " =============================================================================
 
 function! gruvbox_material#get_configuration() "{{{
+  let float_style = get(g:, 'gruvbox_material_float_style', 'bright')
+  if float_style ==# 'none'
+    let float_style = 'blend'
+    echoerr "g:gruvbox_material_float_style='none' was renamed to 'blend'"
+  endif
+
   return {
         \ 'background': get(g:, 'gruvbox_material_background', 'medium'),
         \ 'foreground': get(g:, 'gruvbox_material_foreground', get(g:, 'gruvbox_material_palette', 'material')),
@@ -22,7 +28,7 @@ function! gruvbox_material#get_configuration() "{{{
         \ 'spell_foreground': get(g:, 'gruvbox_material_spell_foreground', 'none'),
         \ 'ui_contrast': get(g:, 'gruvbox_material_ui_contrast', 'low'),
         \ 'show_eob': get(g:, 'gruvbox_material_show_eob', 1),
-        \ 'float_style': get(g:, 'gruvbox_material_float_style', 'bright'),
+        \ 'float_style': float_style,
         \ 'current_word': get(g:, 'gruvbox_material_current_word', get(g:, 'gruvbox_material_transparent_background', 0) == 0 ? 'grey background' : 'bold'),
         \ 'inlay_hints_background': get(g:, 'gruvbox_material_inlay_hints_background', 'none'),
         \ 'statusline_style': get(g:, 'gruvbox_material_statusline_style', 'default'),
