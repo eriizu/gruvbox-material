@@ -682,7 +682,7 @@ highlight! link TSEnvironment Macro
 highlight! link TSEnvironmentName Type
 highlight! link TSError Error
 highlight! link TSException Red
-highlight! link TSField Blue
+highlight! link TSField Fg
 highlight! link TSFloat Purple
 highlight! link TSFuncBuiltin GreenBold
 highlight! link TSFuncMacro GreenBold
@@ -705,7 +705,7 @@ highlight! link TSOperator Orange
 highlight! link TSParameter Fg
 highlight! link TSParameterReference Fg
 highlight! link TSPreProc PreProc
-highlight! link TSProperty Blue
+highlight! link TSProperty Aqua
 highlight! link TSPunctBracket Fg
 highlight! link TSPunctDelimiter Grey
 highlight! link TSPunctSpecial Blue
@@ -713,7 +713,7 @@ highlight! link TSRepeat Red
 highlight! link TSStorageClass Orange
 highlight! link TSStorageClassLifetime Orange
 highlight! link TSStrike Grey
-highlight! link TSString Aqua
+highlight! link TSString Yellow
 highlight! link TSStringEscape Green
 highlight! link TSStringRegex Green
 highlight! link TSStringSpecial SpecialChar
@@ -725,9 +725,9 @@ highlight! link TSText Green
 highlight! link TSTextReference Constant
 highlight! link TSTitle Title
 highlight! link TSTodo Todo
-highlight! link TSType YellowItalic
-highlight! link TSTypeBuiltin YellowItalic
-highlight! link TSTypeDefinition YellowItalic
+highlight! link TSType Blue
+highlight! link TSTypeBuiltin BlueItalic
+highlight! link TSTypeDefinition Blue
 highlight! link TSTypeQualifier Orange
 call gruvbox_material#highlight('TSURI', s:palette.blue, s:palette.none, 'underline')
 highlight! link TSVariable Fg
@@ -862,7 +862,7 @@ if has('nvim-0.9')
   highlight! link @lsp.type.comment TSComment
   highlight! link @lsp.type.decorator TSFunction
   highlight! link @lsp.type.enum TSType
-  highlight! link @lsp.type.enumMember TSProperty
+  highlight! link @lsp.type.enumMember Purple
   highlight! link @lsp.type.events TSLabel
   highlight! link @lsp.type.function TSFunction
   highlight! link @lsp.type.interface TSType
