@@ -10,7 +10,7 @@
 let s:configuration = gruvbox_material#get_configuration()
 let s:palette = gruvbox_material#get_palette(s:configuration.background, s:configuration.foreground, s:configuration.colors_override)
 let s:path = expand('<sfile>:p') " the path of this script
-let s:last_modified = 'Fri Nov  7 20:21:01 UTC 2025'
+let s:last_modified = 'Fri Nov  7 20:21:09 UTC 2025'
 let g:gruvbox_material_loaded_file_types = []
 
 if !(exists('g:colors_name') && g:colors_name ==# 'gruvbox-material' && s:configuration.better_performance)
@@ -726,7 +726,7 @@ highlight! link TSTextReference Constant
 highlight! link TSTitle Title
 highlight! link TSTodo Todo
 highlight! link TSType Blue
-highlight! link TSTypeBuiltin BlueItalic
+highlight! link TSTypeBuiltin Blue
 highlight! link TSTypeDefinition Blue
 highlight! link TSTypeQualifier Orange
 call gruvbox_material#highlight('TSURI', s:palette.blue, s:palette.none, 'underline')
